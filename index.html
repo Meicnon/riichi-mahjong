@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日麻单人机器人对战</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <h1>日麻单人机器人对战</h1>
+        <p>你与3名机器人进行东风战</p>
+        <button id="newRoundBtn">重新开始</button>
+      </div>
+    </section>
+
+    <section id="scoreboard"></section>
+    <section id="opponents"></section>
+    <section id="river"></section>
+    <section id="hand"></section>
+
+    <button id="tsumoBtn">自摸</button>
+    <button id="riichiBtn">立直</button>
+    <button id="sortBtn">理牌</button>
+
+    <div id="statusText"></div>
+    <ol id="log"></ol>
+
+    <script type="module" src="./src/main.js"></script>
+  </main>
+</body>
+</html>
