@@ -10,25 +10,61 @@
   <main class="app">
     <section class="hero">
       <div>
+        <p class="eyebrow">Riichi Mahjong Solo</p>
         <h1>日麻单人机器人对战</h1>
-        <p>你与3名机器人进行东风战</p>
-        <button id="newRoundBtn">重新开始</button>
+        <p class="subtitle">你与 3 名机器人同桌。摸牌、切牌、立直、胡牌，先在东风战中赢下最高点数。</p>
+      </div>
+      <div class="hero-actions">
+        <button id="newRoundBtn" class="primary">重新开局</button>
+        <button id="helpBtn">规则说明</button>
       </div>
     </section>
 
-    <section id="scoreboard"></section>
-    <section id="opponents"></section>
-    <section id="river"></section>
-    <section id="hand"></section>
+    <section id="scoreboard" class="scoreboard" aria-label="玩家分数"></section>
 
-    <button id="tsumoBtn">自摸</button>
-    <button id="riichiBtn">立直</button>
-    <button id="sortBtn">理牌</button>
+    <section class="table">
+      <div class="wall-card">
+        <span>牌山余牌</span>
+        <strong id="wallCount">0</strong>
+      </div>
+      <div id="opponents" class="opponents"></div>
+      <div id="river" class="river" aria-label="弃牌区"></div>
+    </section>
 
-    <div id="statusText"></div>
-    <ol id="log"></ol>
+    <section class="player-panel">
+      <div class="panel-header">
+        <div>
+          <h2>你的手牌</h2>
+          <p id="statusText">准备开始</p>
+        </div>
+        <div class="actions">
+          <button id="tsumoBtn" disabled>自摸</button>
+          <button id="riichiBtn" disabled>立直</button>
+          <button id="sortBtn">理牌</button>
+        </div>
+      </div>
+      <div id="hand" class="hand" aria-label="你的手牌"></div>
+      <p class="hint">点击一张牌切出。该版本实现基础和牌型判断：4 组面子 + 1 对将，或七对子。</p>
+    </section>
 
-    <script type="module" src="./src/main.js"></script>
+    <section class="log-card">
+      <h2>对局记录</h2>
+      <ol id="log" class="log"></ol>
+    </section>
   </main>
+
+  <dialog id="helpDialog">
+    <h2>玩法说明</h2>
+    <p>这是一个轻量日麻 Web MVP：你是南家，与 3 名机器人进行东风战。每轮从牌山摸牌，轮到你时点击手牌切出。</p>
+    <ul>
+      <li>支持基础和牌判断：顺子、刻子、对子、七对子。</li>
+      <li>支持自摸、机器人自摸、机器人荣和、流局。</li>
+      <li>立直为简化机制：进入听牌后可点击立直，胡牌时额外加分。</li>
+      <li>计分为简化娱乐计分，不完整模拟番符、宝牌、役种与鸣牌规则。</li>
+    </ul>
+    <form method="dialog"><button class="primary">知道了</button></form>
+  </dialog>
+
+  <script src="./src/main.js" type="module"></script>
 </body>
 </html>
